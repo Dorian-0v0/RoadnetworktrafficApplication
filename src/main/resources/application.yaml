@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: Roadnetworktraffic
+  datasource:
+    url: jdbc:postgresql://120.27.128.4:5432/postgres
+    username: postgres
+    password: 123postgis
+    driver-class-name: org.postgresql.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      pool-name: PostGISPool
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      connection-timeout: 30000 # 30 seconds
+      validation-timeout: 30000 # 30 seconds
+      max-lifetime: 1800000 # 30 minutes
+      connection-init-sql: SELECT 1
+
+server:
+  port: 9999
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: roadnetworktraffic.roadnetworktraffic.entity.pojo
