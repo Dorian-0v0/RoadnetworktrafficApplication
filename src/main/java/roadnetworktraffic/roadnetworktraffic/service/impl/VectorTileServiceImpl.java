@@ -25,11 +25,6 @@ public class VectorTileServiceImpl implements VectorTileService {
      * @return 矢量瓦片
      */
     public VectorTile getTile(String dataSourceName, Integer z, Integer x, Integer y) {
-//        double[] bbox = Tile4326Util.xyzToBBox3857(x, y, z);
-//        log.info("请求瓦片：{}/{}/{}.pbf", z, x, y);
-//        System.out.println(Arrays.toString(bbox));
-//        System.out.println(Tile4326Util.xyz2prjBound(, y, z));
-        Double[] doubles = Tile4326Util.xyz2prjBound(z, x, y);
         return vectorTileMapper.getMvtTile(z, x, y, dataSourceName);
     }
 

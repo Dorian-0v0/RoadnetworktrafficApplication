@@ -32,7 +32,7 @@ public class VectorTilePostGISController {
         if (dataSourceName == null || dataSourceName.isEmpty()) {
             throw new RuntimeException("数据源名称不能为空");
         }
-        dataSourceName = "传感器数据";
+//        dataSourceName = "传感器数据";
         try {
 
             VectorTile vectorTile = vectorTileService.getTile(dataSourceName, z, x, y);
