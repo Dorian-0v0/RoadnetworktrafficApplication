@@ -20,4 +20,9 @@ public interface LoginMapper {
 
     @Update("update traffic_system.\"user\" set base_map = #{base_map}, center = #{center}, zoom = #{zoom} where id = #{id}")
     Integer updateUserMapState(UserLogout userLogout);
+
+
+    //查询数量
+    @Select("select count(id) from traffic_system.\"user\" where account = #{account} or nick_name = #{nickName}")
+    Integer selectUserByAccentAndNickName(String account, String nickName);
 }

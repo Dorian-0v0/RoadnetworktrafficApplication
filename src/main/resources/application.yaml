@@ -17,12 +17,13 @@ spring:
       max-lifetime: 1800000 # 30 minutes
       connection-init-sql: SELECT 1
 
+
 server:
   port: 9999
 
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: roadnetworktraffic.roadnetworktraffic.entity.pojo

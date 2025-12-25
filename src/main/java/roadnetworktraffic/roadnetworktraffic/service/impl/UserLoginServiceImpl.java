@@ -48,6 +48,11 @@ public class UserLoginServiceImpl implements UserLoginService {
         if (userRegisterDto.getAccount() == null || userRegisterDto.getPassword() == null || userRegisterDto.getNickName() == null || userRegisterDto.getSex() == null) {
             return Result.error("请填写完整信息");
         }
+//        查询账号和昵称是否存在（就是查询数量count）
+        Integer count = loginMapper.selectUserByAccentAndNickName(userRegisterDto.getAccount(), userRegisterDto.getNickName());
+        if(count > 0){
+            return Result.error("账号和昵称已存在");
+        }
         User user = User.builder()
                 .account(userRegisterDto.getAccount())
                 .password(userRegisterDto.getPassword())
